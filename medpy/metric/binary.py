@@ -468,7 +468,7 @@ def assd(result, reference, voxelspacing=None, connectivity=1):
     and then averaging the two lists. The binary images can therefore be supplied in any order.
     """
     assd = numpy.mean(
-        (
+        numpy.concatenate(
             __surface_distances(result, reference, voxelspacing, connectivity),
             __surface_distances(reference, result, voxelspacing, connectivity),
         )
